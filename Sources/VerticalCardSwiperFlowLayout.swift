@@ -37,6 +37,8 @@ internal class VerticalCardSwiperFlowLayout: UICollectionViewFlowLayout {
     internal var isStackOnBottom: Bool = true
     /// Sets how many cards of the stack are visible in the background. Default is 1.
     internal var stackedCardsCount: Int = 1
+    /// Top spacing between each stacked cards
+    internal var stackedCardsSpacing: Int = 10
 
     internal override func prepare() {
         super.prepare()
@@ -183,7 +185,7 @@ internal class VerticalCardSwiperFlowLayout: UICollectionViewFlowLayout {
         if let itemTransform = firstItemTransform {
             let top = isStackOnBottom ? deltaY : deltaY * -1
             let scale = 1 - deltaY * itemTransform
-            let translationScale = CGFloat((attributes.zIndex + 1) * 10)
+            let translationScale = CGFloat((attributes.zIndex + 1) * stackedCardsSpacing)
             var t = CGAffineTransform.identity
 
             let calculatedScale = scale > 0 ? scale : 0

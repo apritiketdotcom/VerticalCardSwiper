@@ -96,6 +96,12 @@ public class VerticalCardSwiper: UIView {
             flowLayout.stackedCardsCount = newValue
         }
     }
+    /// Sets spacking between each stacked card
+    @IBInspectable public var stackedCardsSpacing: Int = 10 {
+        willSet {
+            flowLayout.stackedCardsSpacing = newValue
+        }
+    }
     /**
      Returns an array of indexes (as Int) that are currently visible in the `VerticalCardSwiperView`.
      This includes cards that are stacked (behind the focussed card).
